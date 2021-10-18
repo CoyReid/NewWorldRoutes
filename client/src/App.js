@@ -3,7 +3,7 @@ import AuthenticatedApp from './AuthenticatedApp'
 import UnauthenticatedApp from './UnauthenticatedApp'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-function App() {
+export default function App() {
   const [currentUser, setCurrentUser] = useState(null)
   const [authChecked, setAuthChecked] = useState(false)
 
@@ -40,5 +40,3 @@ function App() {
     </Router>
   )
 }
-
-export default App
