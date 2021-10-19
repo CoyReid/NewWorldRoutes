@@ -1,4 +1,4 @@
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route, useHistory, NavLink } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import MainPage from "./components/MainPage";
 import RoutePage from "./components/RoutePage";
@@ -23,10 +23,20 @@ export default function AuthenticatedApp({ currentUser, setCurrentUser }) {
   return (
     <div className="App">
       <NavBar handleLogout={handleLogout} />
-      <MainPage />
+      <nav>
+        <span>
+          <NavLink to="/test">test</NavLink>
+        </span>
+      </nav>
       <Switch>
-        <Route path="/routes/:id">
+        {/* <Route path="/routes/:id">
           <RoutePage />
+        </Route> */}
+        <Route exact path="/test">
+          <RoutePage />
+        </Route>
+        <Route exact path="/">
+          <MainPage />
         </Route>
       </Switch>
     </div>
