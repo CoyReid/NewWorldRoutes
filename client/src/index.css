@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1 {
+  text-align: center;
+}
+
+canvas {
+  /* background: #f8f8f8; */
+  background-image: url("https://i.ibb.co/F4t7nJY/firstlight.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* https://i.ibb.co/3phbP5Y/firstlightiron.png */
