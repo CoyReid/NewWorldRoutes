@@ -1,5 +1,5 @@
 class UserRouteSerializer < ActiveModel::Serializer
-  attributes :id, :nodes
+  attributes :id, :result, :nodes
   has_one :route
   has_one :user
 

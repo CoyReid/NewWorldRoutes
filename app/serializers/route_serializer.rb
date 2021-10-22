@@ -1,5 +1,5 @@
 class RouteSerializer < ActiveModel::Serializer
-  attributes :id, :region, :info
+  attributes :id, :region, :info, :regionpic, :zoneresources, :routeresource
   has_many :users
   has_many :nodes
   # has_many :user_routes
