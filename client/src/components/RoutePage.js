@@ -200,18 +200,13 @@ export default function RoutePage() {
       ctx = canvas.getContext('2d')
       mouse = new Mouse(ctx, canvas, 'black', 'Bold 16px Monospace')
       grid = new Grid("gray", 0.3, 10, 10, "DarkGray", 0.5)
-      
       grid.draw(ctx, canvas)
-
-      // mouse.track()
-      // window.requestAnimationFrame(update)
+      mouse.track()
+      window.requestAnimationFrame(update)
 
     }
     function update () {
       window.requestAnimationFrame(update)
-      
-      console.log("updating")
-
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       mouse.draw()
       grid.draw(ctx, canvas)
@@ -230,7 +225,7 @@ export default function RoutePage() {
     }
 
     init();
-    addImages(nodes);
+    // addImages(nodes);
   }
 
   useEffect(()=> {
@@ -238,6 +233,7 @@ export default function RoutePage() {
     distanceCalc(nodes);
   }, [])
   
+  let regionpic = "https://i.ibb.co/RSj6hJr/cutlasskeyspic.png"
 
   return (
   <div>
@@ -246,8 +242,9 @@ export default function RoutePage() {
     <div id="mapContainer">
       <canvas 
         id="mapCanvas"
-        width="625"
-        height="625"
+        width="750"
+        height="750"
+        style= {{backgroundImage: `url(${regionpic})`}}
       />
     </div>
     <button onClick={() => generateRoute(nodes)}>generate shortest route</button>

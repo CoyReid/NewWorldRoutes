@@ -10,10 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_18_183327) do
+ActiveRecord::Schema.define(version: 2021_10_18_185652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "nodes", force: :cascade do |t|
+    t.integer "x"
+    t.integer "y"
+    t.string "name"
+    t.string "image"
+    t.bigint "route_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["route_id"], name: "index_nodes_on_route_id"
+  end
+
+  create_table "routes", force: :cascade do |t|
+    t.string "region"
+    t.text "info"
+    t.string "regionpic"
+    t.string "zoneresources"
+    t.string "routeresource"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_routes", force: :cascade do |t|
+    t.string "result"
+    t.bigint "route_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["route_id"], name: "index_user_routes_on_route_id"
+    t.index ["user_id"], name: "index_user_routes_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -26,4 +57,7 @@ ActiveRecord::Schema.define(version: 2021_10_18_183327) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "nodes", "routes"
+  add_foreign_key "user_routes", "routes"
+  add_foreign_key "user_routes", "users"
 end
