@@ -233,7 +233,7 @@ export default function RoutePage() {
     distanceCalc(nodes);
   }, [])
   
-  let regionpic = "https://i.ibb.co/2csH5p8/monarchsbluffspic.png"
+  let regionpic = "https://i.ibb.co/x62G301/brightwoodpic.png"
 
   return (
   <div>
