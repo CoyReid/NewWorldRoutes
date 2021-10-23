@@ -1,3 +1,5 @@
+puts "Seeding..."
+
 u1 = User.create(username: 'user1', displayname: 'user1display', password: 'useronepass', email: 'user1@gmail.com', admin: true, profilepic: "fakeimg.png")
 u2 = User.create(username: 'user2', displayname: 'user2display', password: 'usertwopass', email: 'user2@aol.com', admin: true, profilepic: "fakeimg.png")
 
@@ -1735,3 +1737,4 @@ Node.create(x: 468, y: 430, name: "J", image: "https://i.ibb.co/MDCv1Fv/saltpete
 # ur2 = UserRoute.create(route_id: r2.id, user_id: u2.id, result: ["A", "B", "C", "D"])
 
 
+puts "Finished"
