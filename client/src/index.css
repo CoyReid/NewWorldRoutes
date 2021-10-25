@@ -8,6 +8,7 @@ body {
   background-image: url("https://images.ctfassets.net/j95d1p8hsuun/12Tl0sQL6vNRfXPkIrfuaz/2374cc44fec67de6b53bcc080a57345d/keyart2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: #333333;
 }
 
 code {
@@ -37,4 +38,22 @@ canvas {
 #login {
   background: whitesmoke;
   border-radius: 25px;
+}
+
+.navBar {
+  background-color: #333333;
+}
+
+.sideMenu {
+  background-color: #333333;
+  color: whitesmoke;
+}
+
+.menuIcons {
+  color: whitesmoke !important;
+}
+
+.MuiDrawer-paper {
+  width: 12% !important;
+  background-color: #333333 !important;
 }

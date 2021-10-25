@@ -2,6 +2,10 @@ import { Switch, Route, useHistory, NavLink } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import MainPage from "./components/MainPage";
 import RoutePage from "./components/RoutePage";
+import Box from "@mui/material/Box";
+import Toolbar from '@mui/material/Toolbar';
+import UserPage from "./components/UserPage";
+import UserSettingsPage from "./components/UserSettingsPage";
 
 export default function AuthenticatedApp({ currentUser, setCurrentUser }) {
   const history = useHistory();
@@ -21,24 +25,25 @@ export default function AuthenticatedApp({ currentUser, setCurrentUser }) {
   };
 
   return (
-    <div className="App">
+    <Box sx={{ display: "flex" }}>
       <NavBar handleLogout={handleLogout} />
-      <nav>
-        <span>
-          <NavLink to="/test">test</NavLink>
-        </span>
-      </nav>
-      <Switch>
-        {/* <Route path="/routes/:id">
-          <RoutePage />
-        </Route> */}
-        <Route exact path="/test">
-          <RoutePage />
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Toolbar />
+        <Switch>
+          <Route path="/routes/:id">
+            <RoutePage />
         </Route>
-        <Route exact path="/">
-          <MainPage />
-        </Route>
-      </Switch>
-    </div>
+          <Route exact path="/">
+            <MainPage />
+          </Route>
+          <Route exact path="/profile">
+            <UserPage />
+          </Route>
+          <Route exact path="/settings">
+            <UserSettingsPage />
+          </Route>
+        </Switch>
+      </Box>
+    </Box>
   );
 }
