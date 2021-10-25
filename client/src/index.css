@@ -90,3 +90,24 @@ canvas {
 #mainPageBodyTextThree {
   font-size: 20px;
 }
+
+.searchBar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px !important;
+  background-color: #555555 !important;
+  border-radius: 12px !important;
+  color: whitesmoke !important;
+}
+
+.searchField {
+  border-radius: 3px !important;
+  background-color: whitesmoke !important;
+  margin-right: 12px !important;
+}
+
+.filter {
+  padding: 0px 5px 0px 5px !important;
+  background-color: whitesmoke !important;
+  border-color: black !important;
+}
