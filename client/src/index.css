@@ -57,3 +57,36 @@ canvas {
   width: 12% !important;
   background-color: #333333 !important;
 }
+
+.mainTable {
+  background-color: #CCCCCC !important;
+}
+
+.mainPageGrid {
+  justify-content: center;
+}
+
+.mainPageText {
+  color: whitesmoke;
+  text-align: center;
+  margin-bottom: 25px !important;
+  border-radius: 12px;
+}
+
+#mainPageBodyTextOne {
+  font-size: 30px;
+  background-color: 	#555555;
+  border-radius: 12px;
+  padding-left: 25px;
+}
+
+#mainPageBodyTextTwo {
+  font-size: 22px;
+  background-color: 	#555555;
+  border-radius: 12px;
+  padding-left: 25px;
+}
+
+#mainPageBodyTextThree {
+  font-size: 20px;
+}

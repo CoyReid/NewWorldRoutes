@@ -1,14 +1,22 @@
-import { Switch, Route, useHistory, NavLink } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
+import { useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
 import MainPage from "./components/MainPage";
 import RoutePage from "./components/RoutePage";
 import Box from "@mui/material/Box";
-import Toolbar from '@mui/material/Toolbar';
+import Toolbar from "@mui/material/Toolbar";
 import UserPage from "./components/UserPage";
 import UserSettingsPage from "./components/UserSettingsPage";
 
 export default function AuthenticatedApp({ currentUser, setCurrentUser }) {
   const history = useHistory();
+  const [routes, setRoutes] = useState([]);
+
+  useEffect(() => {
+    fetch("/routes")
+      .then((r) => r.json())
+      .then(setRoutes);
+  }, []);
 
   // console.log("logged in user:", currentUser)
 
@@ -24,17 +32,18 @@ export default function AuthenticatedApp({ currentUser, setCurrentUser }) {
     });
   };
 
+
   return (
     <Box sx={{ display: "flex" }}>
       <NavBar handleLogout={handleLogout} />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-      <Toolbar />
+        <Toolbar />
         <Switch>
           <Route path="/routes/:id">
             <RoutePage />
-        </Route>
+          </Route>
           <Route exact path="/">
-            <MainPage />
+            <MainPage routes={routes}/>
           </Route>
           <Route exact path="/profile">
             <UserPage />
