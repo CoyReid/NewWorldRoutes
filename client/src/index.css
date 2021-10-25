@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://images.ctfassets.net/j95d1p8hsuun/12Tl0sQL6vNRfXPkIrfuaz/2374cc44fec67de6b53bcc080a57345d/keyart2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 code {
@@ -29,3 +32,9 @@ canvas {
 }
 
 /* https://i.ibb.co/3phbP5Y/firstlightiron.png */
+
+
+#login {
+  background: whitesmoke;
+  border-radius: 25px;
+}
