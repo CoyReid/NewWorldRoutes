@@ -11,6 +11,7 @@ import { NavLink } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import SearchSortBar from "./SearchSortBar";
+// import { Redirect } from "react-router";
 
 const columns = [
   { id: "region", label: "Route Region", minWidth: 170 },
@@ -56,6 +57,10 @@ export default function MainPage({ routes }) {
         return false;
       }
     });
+
+  // function handleClick(routeid) {
+  //   <Redirect to={`/routes/${routeid}`} />
+  // }
 
   return (
     <Grid container spacing={2} className="mainPageGrid">
@@ -128,9 +133,9 @@ export default function MainPage({ routes }) {
                   return (
                     <TableRow
                       hover
-                      role="checkbox"
                       tabIndex={-1}
                       key={route.id}
+                      // onClick={handleClick(route.id)}
                     >
                       {columns.map((column) => {
                         const value = route[column.id];
@@ -138,9 +143,9 @@ export default function MainPage({ routes }) {
                           <TableCell
                             key={column.id}
                             align={column.align}
+                            style={{ textDecoration: "none" }}
                             component={NavLink}
                             to={`/routes/${route.id}`}
-                            style={{ textDecoration: "none" }}
                           >
                             {value}
                           </TableCell>

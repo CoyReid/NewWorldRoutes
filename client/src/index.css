@@ -73,6 +73,21 @@ canvas {
   border-radius: 12px;
 }
 
+.routePageHeader {
+  color: whitesmoke;
+  text-align: center;
+  margin-bottom: 25px !important;
+  border-radius: 12px;
+}
+
+.routePageText {
+  font-size: 22px;
+  border-radius: 12px;
+  padding-left: 25px;
+  color: whitesmoke;
+  padding-bottom: 25px;
+}
+
 #mainPageBodyTextOne {
   font-size: 30px;
   background-color: 	#555555;
@@ -110,4 +125,20 @@ canvas {
   padding: 0px 5px 0px 5px !important;
   background-color: whitesmoke !important;
   border-color: black !important;
+}
+
+.routePageGrid {
+  text-align: center;
+  
+}
+
+.routePageInfo {
+  background-color: 	#555555;
+  border-radius: 25px;
+}
+
+.routeBtns {
+  color: black !important;
+  background-color: whitesmoke !important;
+  margin-right: 12px !important;
 }
