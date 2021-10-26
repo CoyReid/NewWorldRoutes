@@ -46,19 +46,19 @@ export default function NavBar({ handleLogout }) {
         <Toolbar />
         <Box sx={{ overflow: "auto" }} className="sideMenu">
           <List>
-            <ListItem button component={NavLink} to="/">
+            <ListItem button component={NavLink} to="/" className="menuBtns">
               <ListItemIcon className="menuIcons">
                 <HomeIcon />
               </ListItemIcon>
               <ListItemText primary="Home" />
             </ListItem>
-            <ListItem button component={NavLink} to="/profile">
+            <ListItem button component={NavLink} to="/profile" className="menuBtns">
               <ListItemIcon className="menuIcons">
                 <AccountCircleIcon />
               </ListItemIcon>
               <ListItemText primary="Profile" />
             </ListItem>
-            <ListItem button component={NavLink} to="/settings">
+            <ListItem button component={NavLink} to="/settings" className="menuBtns">
               <ListItemIcon className="menuIcons">
                 <SettingsIcon />
               </ListItemIcon>
@@ -67,7 +67,7 @@ export default function NavBar({ handleLogout }) {
           </List>
           <Divider />
           <List>
-            <ListItem button onClick={handleLogout}>
+            <ListItem button onClick={handleLogout} className="menuBtns">
               <ListItemIcon className="menuIcons">
                 <LogoutIcon />
               </ListItemIcon>

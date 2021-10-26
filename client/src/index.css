@@ -142,3 +142,16 @@ canvas {
   background-color: whitesmoke !important;
   margin-right: 12px !important;
 }
+
+.routeBtns:hover {
+  background-color: #555555 !important;
+}
+
+#save {
+  margin-left: 170px !important;
+}
+
+.menuBtns {
+  padding: 8px 16px !important;
+}
+

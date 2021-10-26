@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import UserPage from "./components/UserPage";
 import UserSettingsPage from "./components/UserSettingsPage";
+import UserRoutePage from "./components/UserRoutePage";
 
 export default function AuthenticatedApp({ currentUser, setCurrentUser }) {
   const history = useHistory();
@@ -42,14 +43,17 @@ export default function AuthenticatedApp({ currentUser, setCurrentUser }) {
           <Route path="/routes/:id">
             <RoutePage />
           </Route>
+          <Route path="/user_routes/:id">
+            <UserRoutePage />
+          </Route>
           <Route exact path="/">
             <MainPage routes={routes}/>
           </Route>
           <Route exact path="/profile">
-            <UserPage />
+            <UserPage user={currentUser}/>
           </Route>
           <Route exact path="/settings">
-            <UserSettingsPage />
+            <UserSettingsPage user={currentUser} setCurrentUser={setCurrentUser}/>
           </Route>
         </Switch>
       </Box>

@@ -117,7 +117,23 @@ export default function RoutePage() {
   }
 
   function saveRoute(){
-    console.log(routeResult)
+    const results = routeResult.join()
+    fetch("/user_routes", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      credentials: "include",
+      body: JSON.stringify({
+        route_id: route.id,
+        result: results
+      })
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        return res.json().then((errors) => Promise.reject(errors));
+      }
+    });
+    alert("Route Saved!")
   }
 
   

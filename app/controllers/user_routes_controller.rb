@@ -26,7 +26,7 @@ class UserRoutesController < ApplicationController
   private
 
   def user_route_params
-    params.permit(:route_id)
+    params.permit(:route_id, :result)
   end
 
   def find_user_route
