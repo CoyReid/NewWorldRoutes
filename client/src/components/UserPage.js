@@ -37,6 +37,10 @@ export default function UserPage({user}){
     setPage(0);
   };
 
+// function handleClick(id) {
+//   <Link to={`/user_routes/${id}`}></Link>
+// }
+
   return (
     <Grid container spacing={2} className="mainPageGrid">
       <Grid item xs={12}>
@@ -76,12 +80,11 @@ export default function UserPage({user}){
                           <TableCell
                             key={column.id}
                             align={column.align}
-                            style={{ textDecoration: "none" }}
+                            style={{textDecoration:"none"}}
                             component={NavLink}
-                            to={`/user_routes/${route.route.id}`}
-                          >
-                            {value}
-                          </TableCell>
+                            to={`/user_routes/${route.id}`}
+                            // onClick={handleClick(route.id)}
+                          >{value}</TableCell>
                         );
                       })}
                     </TableRow>

@@ -27,7 +27,7 @@ export default function NavBar({ handleLogout }) {
         className="navBar"
       >
         <Toolbar className="navBar">
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant="h6" noWrap component="div" className="navHeader">
             New World Routes
           </Typography>
         </Toolbar>

@@ -16,24 +16,26 @@ code {
     monospace;
 }
 
+.navHeader, #mainPageHead, .routePageHeader {
+  font-family: "MedievalSharp" !important;
+}
+
+.mainPageText {
+  font-family: "fantasy" !important;
+}
+
 h1 {
   text-align: center;
 }
 
 canvas {
-  /* background: #f8f8f8; */
-  /* background-image: url("https://i.ibb.co/W2KpBFc/First-Light-Zone-Pic.png"); */
   background-size: 100% 100%;
-  /* background-position: center; */
   background-repeat: no-repeat;
   padding: 0;
   margin: 0 auto;
   margin-bottom: 1rem;
   display: block;
 }
-
-/* https://i.ibb.co/3phbP5Y/firstlightiron.png */
-
 
 #login {
   background: whitesmoke;

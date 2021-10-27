@@ -1,11 +1,12 @@
 import { sqrt } from 'mathjs'
 import { pow } from 'mathjs'
 import { Grid as gr} from 'canvas-coords'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useParams } from "react-router-dom";
 import { Grid } from '@mui/material';
 import { Typography } from '@mui/material';
 import Button from '@mui/material/Button';
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 export default function RoutePage() {
   const { NaiveTsp } = require("naive-tsp");
@@ -14,6 +15,9 @@ export default function RoutePage() {
   let idNumber = { id }.id;
 
   let results = {};
+
+  const [loading, setLoading] = useState(false);
+  // const loadingRef = useRef(null);
 
   const [route, setRoute] = useState({});
   const [nodes, setNodes] = useState([{image: ""}]);
@@ -50,7 +54,7 @@ export default function RoutePage() {
       imageObj.src = `${nodes[0].image}`
       imageObj.onload = function () {
         nodesArr.forEach((node) => {
-          ctx.drawImage(imageObj, node.x, node.y, 15, 15)
+          ctx.drawImage(imageObj, node.x - 7, node.y - 7, 20, 20)
         })
       }
     }
@@ -88,6 +92,7 @@ export default function RoutePage() {
   }
 
   function generateRoute(nodes) {
+    // setLoading(!loading)
     let startingNode = nodes[0].name
     console.log("generating route")
     const shortestPath = new NaiveTsp(nodeNames, results, startingNode).shortestPath().path;
@@ -116,6 +121,14 @@ export default function RoutePage() {
     ctx.stroke();
   }
 
+  // useEffect(() => {
+  //   debugger
+  //   if(loading.current) {
+      
+  //     generateRoute(nodes)
+  //   }
+  // }, [loading])
+
   function saveRoute(){
     const results = routeResult.join()
     fetch("/user_routes", {
@@ -135,7 +148,6 @@ export default function RoutePage() {
     });
     alert("Route Saved!")
   }
-
   
   return (
     <Grid container spacing={2} className="routePageGrid">
@@ -163,7 +175,15 @@ export default function RoutePage() {
     </Grid>
     <Grid item xs={12}>
         <Button variant="contained" className="routeBtns" onClick={() => gridOverlay(nodes)}>Show Nodes</Button>
-        <Button variant="contained" className="routeBtns" onClick={() => generateRoute(nodes)}>Generate Route</Button>
+        <Button variant="contained" 
+          className="routeBtns" 
+          onClick={() => {
+          // setLoading(!loading)
+          generateRoute(nodes)
+          }} 
+          disabled={loading}>
+          {loading ? <CircularProgress size={24} /> : 'Generate Route'}
+        </Button>
         <Button variant="contained" className="routeBtns" onClick={() => saveRoute()}>Save</Button>
     </Grid>
   </Grid>

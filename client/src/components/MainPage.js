@@ -34,7 +34,9 @@ export default function MainPage({ routes }) {
     setPage(0);
   };
 
-  const searchedFilteredRoutes = routes
+  const shuffledRoutes = routes.sort(() => Math.random() - 0.5)
+
+  const searchedFilteredRoutes = shuffledRoutes
     .filter(
       (route) =>
         route.region.toLowerCase().includes(search.toLowerCase()) ||
@@ -59,13 +61,14 @@ export default function MainPage({ routes }) {
     });
 
   // function handleClick(routeid) {
-  //   <Redirect to={`/routes/${routeid}`} />
+  //   console.log("clicked");
+  //   <Link to={`/routes/${routeid}`}></Link>
   // }
 
   return (
     <Grid container spacing={2} className="mainPageGrid">
       <Grid item xs={12}>
-        <Typography variant="h2" component="div" className="mainPageText">
+        <Typography variant="h2" component="div" className="mainPageText" id="mainPageHead">
           Welcome to New World Routes!
         </Typography>
         <Typography
@@ -87,7 +90,7 @@ export default function MainPage({ routes }) {
           New World comes with a variety of fun, interactive features including
           gathering/crafting. One of the primary gathering skills is Mining,
           which requires a pickaxe and allows you to mine ores/resources in each
-          region. As mining is tedious and time consuming process, this website
+          region. As mining is a tedious and time consuming process, this website
           is meant to help players generate and save routes for mining ores in
           an efficient manner.
         </Typography>
@@ -135,7 +138,6 @@ export default function MainPage({ routes }) {
                       hover
                       tabIndex={-1}
                       key={route.id}
-                      // onClick={handleClick(route.id)}
                     >
                       {columns.map((column) => {
                         const value = route[column.id];
@@ -146,8 +148,9 @@ export default function MainPage({ routes }) {
                             style={{ textDecoration: "none" }}
                             component={NavLink}
                             to={`/routes/${route.id}`}
+                            // onClick={() => handleClick(route.id)}
                           >
-                            {value}
+                          {value}
                           </TableCell>
                         );
                       })}

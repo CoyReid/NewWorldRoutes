@@ -41,7 +41,7 @@ export default function UserRoutePage(){
       imageObj.src = `${nodes[0].image}`
       imageObj.onload = function () {
         nodesArr.forEach((node) => {
-          ctx.drawImage(imageObj, node.x, node.y, 15, 15)
+          ctx.drawImage(imageObj, node.x -7, node.y -7, 20, 20)
         })
       }
     }
@@ -53,6 +53,17 @@ export default function UserRoutePage(){
   function generateRoute(nodes) {
     let startingNode = nodes[0].name
     drawLines(routeResult, startingNode);
+  }
+
+  function handleDelete() {
+    fetch(`/user_routes/${idNumber}`, {
+      method: "DELETE",
+      credentials: "include"
+    }).then((res) => {
+      if (res.ok) {
+        alert("Route was removed from your list")
+      }
+    });
   }
 
   function drawLines(shortestPath, startingNode) {
@@ -73,7 +84,7 @@ export default function UserRoutePage(){
     ctx.closePath()
     ctx.stroke();
   }
-
+  if (Object.keys(route).length !== 0) {
   return (
     <Grid container spacing={2} className="routePageGrid">
     <Grid item xs={12} className="routePageInfo">
@@ -101,7 +112,12 @@ export default function UserRoutePage(){
     <Grid item xs={12}>
         <Button variant="contained" className="routeBtns" onClick={() => gridOverlay(nodes)}>Show Nodes</Button>
         <Button variant="contained" className="routeBtns" onClick={() => generateRoute(nodes)}>Show Route</Button>
+        <Button variant="contained" className="routeBtns" onClick={() => handleDelete()}>Delete Route</Button>
     </Grid>
   </Grid>
-  )
+  )} else {
+    return (
+      <div></div>
+    )
+  }
 }
