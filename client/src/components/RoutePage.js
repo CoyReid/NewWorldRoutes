@@ -1,7 +1,7 @@
 import { sqrt } from 'mathjs'
 import { pow } from 'mathjs'
 import { Grid as gr} from 'canvas-coords'
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import { Grid } from '@mui/material';
 import { Typography } from '@mui/material';
@@ -92,13 +92,13 @@ export default function RoutePage() {
   }
 
   function generateRoute(nodes) {
-    // setLoading(!loading)
     let startingNode = nodes[0].name
     console.log("generating route")
     const shortestPath = new NaiveTsp(nodeNames, results, startingNode).shortestPath().path;
     console.log("finished")
     drawLines(shortestPath, startingNode);
     setRouteResult(shortestPath)
+    // setLoading(!loading)
   }
 
   function drawLines(shortestPath, startingNode) {
@@ -122,10 +122,11 @@ export default function RoutePage() {
   }
 
   // useEffect(() => {
-  //   debugger
-  //   if(loading.current) {
-      
-  //     generateRoute(nodes)
+  //   // debugger
+  //   if(loading) {
+  //     setTimeout(() => {
+  //       generateRoute(nodes)
+  //     }, 3000);
   //   }
   // }, [loading])
 
