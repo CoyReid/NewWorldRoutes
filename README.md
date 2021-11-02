@@ -6,7 +6,7 @@ This project is focused on helping players of the popular MMO New World create o
 
 Demo:
 
-*insert link*
+https://watch.screencastify.com/v/ydrtbxCXa7vpN83EBle5
 
 NewWorldRoutes will be deployed soon, for now it is still in development. If you'd like to use it now, follow the steps below:
 
