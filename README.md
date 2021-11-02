@@ -1,5 +1,7 @@
 # README
 
+## Description
+
 This project is focused on helping players of the popular MMO New World create optimized routes for efficient resource gathering. 
 
 Demo:
