@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is focused on helping players of the popular MMO New World create optimized routes for efficient resource gathering. 
 
-Things you may want to cover:
+Demo:
 
-* Ruby version
+*insert link*
 
-* System dependencies
+NewWorldRoutes will be deployed soon, for now it is still in development. If you'd like to use it now, follow the steps below:
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Clone/fork repo
+- bundle install 
+- npm install (from inside client folder)
+- rails s (to start backend server)
+- npm start (to start frontend app, inside client folder)
